@@ -8,7 +8,7 @@ import com.example.demo.entity.ItemCategory;
 @Service
 public interface ItemCategoryService {
     List<ItemCategory> getAllItemCategories();
-    ItemCategory getItemCategory(Long id);
+    ItemCategory getItemCategoryById(Long id);
     ItemCategory addItemCategory(ItemCategory itemCategory);
     ItemCategory updateItemCategory(Long id, ItemCategory itemCategory);
     void deleteItemCategory(Long id);

@@ -5,13 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Item;
-import com.example.demo.exceptions.ItemNotFoundException;
 
 @Service
 public interface ItemService {
     List <Item> getAllItems();
-    Item getItemById(Long id) throws ItemNotFoundException;
+    Item getItemById(Long id) ;
     Item addItem(Item item);
-    Item updateItem(Long id, Item item) throws ItemNotFoundException;
-    void deleteItem(Long id) throws ItemNotFoundException;
+    Item updateItem(Long id, Item item) ;
+    void deleteItem(Long id) ;
 }

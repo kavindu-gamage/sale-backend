@@ -23,7 +23,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item getItemById(Long id) throws ItemNotFoundException{
+    public Item getItemById(Long id) {
         return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item Not found"+ id));
     }
 
@@ -33,7 +33,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item updateItem(Long id, Item item) throws ItemNotFoundException{
+    public Item updateItem(Long id, Item item) {
         Item existingItem = getItemById(id);
 
         existingItem.setName(item.getName());
@@ -45,6 +45,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(Long id){
+        if(!itemRepository.existsById(id)){
+            throw new ItemNotFoundException("Item Not found"+ id);
+        }
         itemRepository.deleteById(id);
     }
 
