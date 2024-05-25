@@ -2,11 +2,13 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Stock;
 import com.example.demo.exceptions.StockNotFoundException;
 import com.example.demo.repository.StockRepository;
 
+@Service
 public class StockServiceImpl implements StockService {
     private StockRepository stockRepository;
 

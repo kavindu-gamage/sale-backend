@@ -2,11 +2,13 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.ItemCategory;
 import com.example.demo.exceptions.ItemNotFoundException;
 import com.example.demo.repository.ItemCategoryRepository;
 
+@Service
 public class ItemCategoryServiceImpl implements ItemCategoryService {
     private ItemCategoryRepository itemCategoryRepository;
 
