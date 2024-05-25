@@ -90,15 +90,4 @@ public class WebSecurityConfig {
 
 }
 
-// spring security configuration using all utilities, classes and components
 
-//step 04
-/* Most importnat part is security filter chain bean-this defineas to filter every request comes to server
- * 1.csrf is old security method and first disabled it
- * 2. blocking unauthrized user- calls to the AuthEntryPointJwt file
- * 3.Then tell about the session management using statelesss method(sending token to user)
- * 4. authorizing http request- if any request comes to auth it permits(/auth) and other any request not permits
- * 5. define the authentication provider- calls for the DaoAuthenticationProvider function
- * 5.2 password encode- for more protectivity used bcrypt encoder here
- * 6. Adding filter for requests- call for auth token filter
- */

@@ -26,5 +26,3 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 
 }
 
-// give a msg to user if user unauthorized
-// Block when unauthorized user tries to get sign in

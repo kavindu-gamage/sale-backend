@@ -76,6 +76,3 @@ public class JwtUtils {
     }
 }
 
-// Token header(token type+algorithm use to sign the token)
-// payload(user detials, issuedtime, exp time)
-// signature

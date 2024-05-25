@@ -16,7 +16,7 @@ public class ItemServiceImpl implements ItemService {
     private IdValidator idValidator;
 
     @Autowired
-    public ItemServiceImpl(ItemRepository itemRepository) {
+    public ItemServiceImpl(ItemRepository itemRepository, IdValidator idValidator) {
         this.itemRepository = itemRepository;
         this.idValidator = idValidator;
     }
