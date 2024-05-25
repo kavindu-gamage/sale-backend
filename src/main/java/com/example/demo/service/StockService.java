@@ -9,8 +9,12 @@ import com.example.demo.entity.Stock;
 @Service
 public interface StockService {
     List<Stock> getAllStocks();
+
     Stock getStockById(Long id);
+
     Stock addStock(Stock stock);
+
     Stock updateStock(Long id, Stock stock);
+
     void deleteStock(Long id);
 }

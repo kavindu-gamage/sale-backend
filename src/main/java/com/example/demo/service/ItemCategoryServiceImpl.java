@@ -1,4 +1,5 @@
 package com.example.demo.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,27 +14,28 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
     private ItemCategoryRepository itemCategoryRepository;
 
     @Autowired
-    public ItemCategoryServiceImpl(ItemCategoryRepository itemCategoryRepository){
+    public ItemCategoryServiceImpl(ItemCategoryRepository itemCategoryRepository) {
         this.itemCategoryRepository = itemCategoryRepository;
     }
 
     @Override
-    public List<ItemCategory> getAllItemCategories(){
+    public List<ItemCategory> getAllItemCategories() {
         return itemCategoryRepository.findAll();
     }
 
     @Override
-    public ItemCategory getItemCategoryById(Long id){
-        return itemCategoryRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item Category Not Found "+ id));
+    public ItemCategory getItemCategoryById(Long id) {
+        return itemCategoryRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Item Category Not Found " + id));
     }
 
     @Override
-    public ItemCategory addItemCategory(ItemCategory itemCategory){
+    public ItemCategory addItemCategory(ItemCategory itemCategory) {
         return itemCategoryRepository.save(itemCategory);
     }
 
     @Override
-    public ItemCategory updateItemCategory(Long id, ItemCategory itemCategory){
+    public ItemCategory updateItemCategory(Long id, ItemCategory itemCategory) {
         ItemCategory exisingItemCategory = getItemCategoryById(id);
 
         exisingItemCategory.setName(itemCategory.getName());
@@ -43,9 +45,9 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
     }
 
     @Override
-    public void deleteItemCategory(Long id){
-        if(!itemCategoryRepository.existsById(id)){
-            throw new ItemNotFoundException("Item Category Not Found "+ id);
+    public void deleteItemCategory(Long id) {
+        if (!itemCategoryRepository.existsById(id)) {
+            throw new ItemNotFoundException("Item Category Not Found " + id);
         }
     }
 
