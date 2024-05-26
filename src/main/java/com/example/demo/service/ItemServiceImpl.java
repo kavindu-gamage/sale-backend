@@ -29,7 +29,8 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item getItemById(Long id) {
         idValidator.validateId(id);
-        return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Item Not found for id number " + id));
+        return itemRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Item Not found for id number " + id));
     }
 
     @Override
