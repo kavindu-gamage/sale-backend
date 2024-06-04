@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.demo.dto.entities.ItemDTO;
 import com.example.demo.entity.Item;
 
 public interface ItemController {
     
     @GetMapping("/items")
-    ResponseEntity<List<Item>> getAllItems();
+    ResponseEntity<List<ItemDTO>> getAllItems();
 
     @GetMapping("/items/{id}")
-    ResponseEntity<Item> getItemById(@PathVariable Long id);
+    ResponseEntity<ItemDTO> getItemById(@PathVariable Long id);
     
     @PostMapping("/items")
-    ResponseEntity<Item> saveItem(@RequestBody Item item);
+    ResponseEntity<ItemDTO> saveItem(@RequestBody Item item);
 
     @PutMapping("items/{id}")
-    ResponseEntity<Item> updateItem(@PathVariable Long id, @RequestBody Item item);
+    ResponseEntity<ItemDTO> updateItem(@PathVariable Long id, @RequestBody Item item);
 
     @DeleteMapping("items/{id}")
     ResponseEntity<Void> deleteItem(@PathVariable Long id);

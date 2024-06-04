@@ -37,6 +37,6 @@ public class Item {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
-    @JsonBackReference
+    //@JsonBackReference
     private ItemCategory itemCategory;
 }

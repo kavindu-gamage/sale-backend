@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dto.entities.ItemCategoryDTO;
+import com.example.demo.dto.entities.ItemDTO;
 import com.example.demo.entity.Item;
 import com.example.demo.exceptions.ItemNotFoundException;
 import com.example.demo.repository.ItemRepository;
@@ -34,7 +36,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item addItem(Item item) {
+    public Item addItem(Item item){
         return itemRepository.save(item);
     }
 
@@ -56,6 +58,22 @@ public class ItemServiceImpl implements ItemService {
             throw new ItemNotFoundException("Item Not found for id number " + id);
         }
         itemRepository.deleteById(id);
+    }
+
+    public ItemDTO convertToDTO(Item item) {
+        ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setId(item.getId());
+        itemDTO.setName(item.getName());
+        itemDTO.setDescription(item.getDescription());
+        itemDTO.setPrice(item.getPrice());
+        
+        // Populate ItemCategoryDTO
+        ItemCategoryDTO itemCategoryDTO = new ItemCategoryDTO();
+        itemCategoryDTO.setId(item.getItemCategory().getId());
+        itemCategoryDTO.setName(item.getItemCategory().getName());
+        itemDTO.setItemCategory(itemCategoryDTO);
+        
+        return itemDTO;
     }
 
 }
